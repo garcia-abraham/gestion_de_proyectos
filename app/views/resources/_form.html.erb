@@ -1,0 +1,11 @@
+  <div class="field is-horizontal is-narrow">
+  <div class="field-label is-normal">
+    <label class="label"> Tipo de Miembro </label>
+    <%= form_with url: new_task_resource_path do |f| %>
+      <%= f.collection_select(:resource_id, @resources, :id, :name) %>
+  </div>
+</div>
+
+
+
+<% end %>

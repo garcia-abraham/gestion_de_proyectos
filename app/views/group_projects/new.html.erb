@@ -1,0 +1,27 @@
+<%= form_for(@group_project, url: project_group_projects_path) do |f| %>
+  <%= f.hidden_field :project_id, value: @project.id %>
+  <%= f.hidden_field :role %>
+
+  <div class="field is-horizontal is-narrow">
+    <div class="field-label is-normal">
+      <label class="label">Miembro </label>
+    </div>
+  </div>
+
+  <div class="field is-horizontal is-narrow">
+    <div class="field-body">
+      <div class="field">
+        <p class="control is-expanded">
+          <%= f.collection_select(:user_id, User.all_except(@project.users), :id, :name, class:'input') %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= f.submit 'Agregar', class: "button is-success" %>
+    </div>
+  </div>
+
+<% end %>

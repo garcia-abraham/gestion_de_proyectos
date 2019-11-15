@@ -1,0 +1,292 @@
+$facebookColor: #395697;
+$info: hsl(0, 100%, 1%);
+
+.is-active {
+    display: initial;
+}
+
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+
+footer{
+    background: $info !important;
+    padding: 1rem 1.5rem 1rem !important;
+
+  p,strong{
+        color: white !important;
+    }
+    a{
+      color: yellow !important;
+    }
+    .social-media{
+      color: white !important;
+    }
+}
+
+#log-in{
+    background-color: #209cee !important;
+}
+
+#login{
+
+    display: inline;
+
+  .button {
+    background-color: forestgreen !important;
+    border-color: forestgreen !important;
+    color: white !important;
+
+    .fas {
+      color: white !important;
+    }
+  }
+}
+
+#logout{
+
+    display: none;
+
+    .button{
+        background-color: red !important;
+        border-color: red !important;
+        color: white !important;
+
+        .fas{
+            color: white !important;
+        }
+    }
+}
+
+.is-active{
+    display: inherit !important;
+}
+
+.fa, .far, .fas{
+
+  padding: inherit;
+
+}
+#btnGoogle{
+  margin-bottom: 10px;
+}
+#btnFacebook{
+
+     background-color: $facebookColor !important;
+     border-color: transparent;
+     color: #FFFFFF;
+  }
+
+.box{
+  margin: 0 auto !important;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.box-market{
+
+  border-radius: 10px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  color: #4a4a4a;
+  padding: 1rem;
+}
+
+.box-form{
+  margin: 0 auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  color: #4a4a4a;
+  display: block;
+  padding: 1.25rem;
+}
+
+.box-contact{
+
+  margin-top: -30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  color: #4a4a4a;
+  padding: 1.25rem;
+}
+
+.box-turn{
+
+
+  margin-top: -30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  color: #4a4a4a;
+  padding: 1.25rem;
+  background-color: #242b56;
+}
+
+.btnLog{
+  margin-left: 8px;
+}
+
+#notificationOut{
+
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+
+}
+
+#notificationIn {
+
+  float: top;
+  width: 100%;
+  height: 50px;
+  margin-top: -50px;
+  background-color: $info;
+  -webkit-transition: margin-top .4s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.texto{
+
+  color: white;
+  text-align: center;
+
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /*16:9*/
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+  @media screen and (min-width: 769px), print {
+    .field-label {
+      margin-right: 0em !important;
+      text-align: left !important;
+    }
+  }
+
+.container{
+
+  margin-top: 20px !important;
+}
+
+.field.is-grouped{
+
+  justify-content: center !important;
+}
+
+.table{
+  margin: 0 auto !important;
+}
+
+hr {
+  border:none;
+  height: 20px;
+  width: 90%;
+  height: 50px;
+  margin-top: 0;
+  border-bottom: 1px solid #1f1209;
+  box-shadow: 0 20px 20px -20px #333;
+  margin: 10px auto 40px;
+  background-color: transparent !important;
+}
+
+.img-deco{
+  border-radius: 20px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  color: black;
+  background-color: white;
+
+}
+
+#market{
+  padding: 10px;
+  line-height: 3 !important;
+}
+
+#logo-header{
+
+  transform: scale(7, 7);
+}
+
+#logo-espacio{
+
+  padding: 0.5rem 4.5rem !important;
+}
+
+.search{
+
+  margin-bottom: 20px !important;
+  margin-top: -20px !important;
+}
+
+.team-text{
+  margin-top: -30px !important;
+  margin-bottom: 20px !important;
+}
+
+.card-footer{
+  padding: 0 !important;
+}
+
+.btn_turno{
+  width: 100%;
+  height: 100%;
+  font-size: 2.5em !important;
+}
+
+.border-turn{
+  border-radius: 10px;
+  border-color: white !important;
+  border: 4px;
+}
+
+.container1{
+  width: 33%;
+  height: 33%;
+  margin: 0 auto;
+}
+
+#negrita{
+
+  font-weight: bold;
+}
+
+#pm{
+  transform: scale(0.3, 0.3);
+  margin-bottom: -110px;
+  margin-top: -140px;
+}
+
+td{
+  text-align: center !important;
+}
+
+#fixed_td{
+  width: 400px;
+}

@@ -1,0 +1,22 @@
+<h3 id="negrita">Tareas</h3>
+
+<div class="container">
+  <table class="table">
+    <thead>
+    <td>Nombre</td>
+    <td>Detalle</td>
+    <td>Estado</td>
+    <td>Costo</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </thead>
+    <%= render @tasks %>
+  </table>
+</div>
+
+<br>
+
+  <%= link_to 'Crear Tarea', new_project_task_path, class: 'button is-success' %>
+
+

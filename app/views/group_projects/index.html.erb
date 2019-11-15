@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table">
+    <thead>
+    <td>Nombre</td>
+    <td></td>
+    </thead>
+    <% @group_projects.each do |group_project| %>
+      <tbody>
+      <tr>
+        <td><%= User.find(group_project.user_id).name %></td>
+        <%if @project.group_projects.find_by_user_id(current_user.id).administrator? && User.find(group_project.user_id) != current_user %>
+          <td><%= link_to 'Eliminar', group_project, method: :delete %></td>
+        <% end %>
+      </tr>
+      </tbody>
+    <% end %>
+
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'Agregar Colaborador',  new_project_group_project_path, class:'button is-success' %>

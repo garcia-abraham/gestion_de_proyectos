@@ -1,0 +1,197 @@
+<%= form_for(@task, url: local_assigns[:url]) do |f| %>
+  <%= f.hidden_field :project_id %>
+
+  <% if @task.persisted? %>
+    <%if  current_user.tasks.find_by(id: @task.id)%>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-label is-normal">
+          <label class="label">Nombre </label>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded">
+              <%= f.text_field :name, class: 'input', placeholder: "Nombre" %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-label is-normal">
+          <label class="label">Detalle </label>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded">
+              <%= f.text_field :detail, class: 'input', placeholder: "Detalle" %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-label is-normal">
+          <label class="label">Fecha Inicio </label>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded">
+              <%= f.date_select :start_date, :order => [:day, :month, :year], class: 'input' %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-label is-normal">
+          <label class="label">Fecha Final </label>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded">
+              <%= f.date_select :finish_date, :order => [:day, :month, :year], class: 'input' %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-label is-normal">
+          <label class="label">Estado </label>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded">
+              <%= f.select :status, Project.statuses.keys.map { |w| [w.humanize, w] }, class: 'input' %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    <%elsif !@task.project.group_projects.find_by_user_id(current_user.id).administrator?  && current_user.projects.find_by(id: @task.project)%>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-label is-normal">
+          <label class="label">Estado </label>
+        </div>
+      </div>
+
+      <div class="field is-horizontal is-narrow">
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded">
+              <%= f.select :status, Project.statuses.keys.map { |w| [w.humanize, w] }, class: 'input' %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    <%end %>
+
+  <%else%>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-label is-normal">
+        <label class="label">Nombre </label>
+      </div>
+    </div>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded">
+            <%= f.text_field :name, class: 'input', placeholder: "Nombre" %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-label is-normal">
+        <label class="label">Detalle </label>
+      </div>
+    </div>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded">
+            <%= f.text_field :detail, class: 'input', placeholder: "Detalle" %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-label is-normal">
+        <label class="label">Fecha Inicio </label>
+      </div>
+    </div>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded">
+            <%= f.date_select :start_date, :order => [:day, :month, :year], class: 'input' %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-label is-normal">
+        <label class="label">Fecha Final </label>
+      </div>
+    </div>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded">
+            <%= f.date_select :finish_date, :order => [:day, :month, :year], class: 'input' %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-label is-normal">
+        <label class="label">Estado </label>
+      </div>
+    </div>
+
+    <div class="field is-horizontal is-narrow">
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded">
+            <%= f.select :status, Project.statuses.keys.map { |w| [w.humanize, w] }, class: 'input' %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= f.submit yield(:button_text), class: "button is-success" %>
+    </div>
+  </div>
+
+<% end %>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= render 'layouts/rails_default' %>
+    <%= render 'layouts/shim'%>
+  </head>
+
+  <body class="site">
+  <%= render 'layouts/header'%>
+    <% flash.each do |message_type, message| %>
+    <div id="notificationIn">
+      <div class="texto"><%=message%></div>
+    </div>
+    <% end %>
+    <main class="site-content">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

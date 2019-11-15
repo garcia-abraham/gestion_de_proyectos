@@ -1,0 +1,15 @@
+<tbody>
+  <tr>
+    <td><%= project.name %></td>
+    <td><%= project.status %></td>
+    <td><%= project.total_price %></td>
+
+    <%if project.group_projects.find_by_user_id(current_user.id).administrator? %>
+
+     <td><%= link_to 'Editar', edit_project_path(project)%></td>
+      <td><%= link_to 'Borrar', project, method: :delete%></td>
+      <td><%= link_to 'Miembros',  project_group_projects_path(project)%></td>
+    <%end%>
+    <td><%= link_to 'Ver Tareas', project_tasks_path(project)%></td>
+  </tr>
+</tbody>

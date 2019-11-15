@@ -1,0 +1,30 @@
+<nav class="navbar has-shadow">
+	<div class="navbar-brand">
+
+		<a id="logo-espacio" class="navbar-item" href=<%=root_path%>>
+			<img id="logo-header" src="/logo.png">
+		</a>
+
+		<div class="navbar-burger burger" data-target="navbarBurger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
+	</div>
+
+    <div id="navbarBurger" class="navbar-menu">
+
+        <div class="navbar-end is-link" id="menu">
+
+          <% if user_signed_in? %>
+
+            <a class="navbar-item" data-method="delete" href=<%=destroy_user_session_path%>>
+              <i class="fas fa-sign-out-alt"></i>Salir
+            </a>
+
+          <% end %>
+
+        </div>
+    </div>
+</nav>
