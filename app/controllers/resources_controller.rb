@@ -6,7 +6,7 @@ class ResourcesController < ApplicationController
 
   def index
     @task = Task.find(params[:task_id])
-    @resources = @task.resources
+    @resources = @task.resources_tasks
   end
 
   def new
@@ -16,16 +16,16 @@ class ResourcesController < ApplicationController
   def create
     @task = Task.find(params[:task_id])
     @resource = Resource.find(params[:resource_id])
-    @task.resources.push(@resource)
-
-    if @task.update
+    quantity = params[:quantity]
+    total = @resource.price * quantity.to_i
+    @resource_task = ResourceTask.create task: @task, resource: @resource, quantity: quantity, total: total
+    if @resource_task.save
       flash[:success] = "Recurso Agregado"
       redirect_to  task_resources_path @task
     else
-      flash.now[:alert] = @resource.errors.full_messages.join("\n")
+      flash.now[:alert] = @resources.errors.full_messages.join("\n")
       render 'new'
     end
-
   end
 
   def edit
@@ -44,7 +44,9 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
-    Resource.find(params[:id]).destroy
+    @task = Task.find(params[:task_id])
+    @task.resources.find(params[:id]).destroy
+    # Resource.find(params[:id]).destroy
     flash[:success] = "Recurso Borrado"
     redirect_back(fallback_location: root_path)
   end

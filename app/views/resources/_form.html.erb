@@ -1,11 +1,34 @@
-  <div class="field is-horizontal is-narrow">
+<%= form_with url: task_resources_path do |f| %>
+
+<div class="field is-horizontal is-narrow">
   <div class="field-label is-normal">
     <label class="label"> Tipo de Miembro </label>
-    <%= form_with url: new_task_resource_path do |f| %>
       <%= f.collection_select(:resource_id, @resources, :id, :name) %>
   </div>
 </div>
 
+<div class="field is-horizontal is-narrow">
+<div class="field-label is-normal">
+  <label class="label">Cantidad de Horas </label>
+</div>
+</div>
 
+<div class="field is-horizontal is-narrow">
+<div class="field-body">
+  <div class="field">
+    <p class="control is-expanded">
+      <%= f.number_field :quantity, class: 'input', placeholder: "Cantidad" %>
+    </p>
+  </div>
+</div>
+</div>
+
+<br>
+
+<div class="field is-grouped">
+<div class="control">
+  <%= f.submit 'Agregar Recurso', class: "button is-success" %>
+</div>
+</div>
 
 <% end %>

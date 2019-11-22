@@ -12,23 +12,22 @@ ActiveAdmin.register Resource do
 #   permitted
 # end
 
-    permit_params [:name, :price, :quantity]
+permit_params :name, :price
 
-    form do |f|
-        f.inputs "Resource details" do
-            f.input :name 
-            f.input :price
-            f.input :quantity
-        end
-        f.actions
-    end
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :price
+    actions
+  end
 
-    index do
-        selectable_column
-        column :id
-        column :name
-        column :price
-        actions
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :price
     end
+    f.actions
+  end
 
 end
