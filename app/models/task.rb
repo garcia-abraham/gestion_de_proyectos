@@ -10,8 +10,8 @@ class Task < ApplicationRecord
 
   def total_price
     total_price = 0
-    self.resources.each do |resource|
-      total_price += resource.price
+    self.resources_tasks.each do |resource|
+      total_price += resource.total
     end
       total_price
   end

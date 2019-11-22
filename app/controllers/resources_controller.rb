@@ -44,9 +44,8 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
-    @task = Task.find(params[:task_id])
-    @task.resources.find(params[:id]).destroy
-    # Resource.find(params[:id]).destroy
+    @resource = current_user.tasks.resources_tasks.find(params[:id])
+    @resource.destroy
     flash[:success] = "Recurso Borrado"
     redirect_back(fallback_location: root_path)
   end
