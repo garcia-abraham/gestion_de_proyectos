@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :detail, :start_date, :finish_date, :status, :project_id)
+    params.require(:task).permit(:name, :detail, :porcentaje, :start_date, :finish_date, :status, :project_id)
   end
 
   def correct_user

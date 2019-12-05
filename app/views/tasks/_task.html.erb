@@ -5,6 +5,7 @@
   <td id="fixed_td"><%= task.detail %></td>
   <td><%= task.status %></td>
   <td><%= task.total_price %></td>
+  <td><%= task.porcentaje %></td>
   <%if @project.group_projects.find_by_user_id(current_user.id).administrator? || task.user.id == current_user.id || current_user.projects.find_by(id: task.project) %>
 
     <td><%= link_to 'Editar', edit_task_path(task)%></td>
