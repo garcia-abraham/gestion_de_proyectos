@@ -7,7 +7,15 @@ class TasksController < ApplicationController
 
   def index
     @project = Project.find(params[:project_id])
-    @tasks = @project.tasks
+    
+    case params[:filter].to_i
+    when 0
+      @tasks = @project.tasks.sort_by(&:total_price).reverse!
+    when 1
+      @tasks = @project.tasks.sort_by(&:total_resources).reverse!
+    else
+      @tasks = @project.tasks
+    end
   end
 
   def edit
@@ -50,7 +58,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :detail, :porcentaje, :start_date, :finish_date, :status, :project_id)
+    params.require(:task).permit(:name, :detail, :percentage, :start_date, :finish_date, :status, :project_id)
   end
 
   def correct_user

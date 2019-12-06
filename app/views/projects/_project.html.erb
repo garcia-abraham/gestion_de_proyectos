@@ -3,6 +3,8 @@
     <td><%= project.name %></td>
     <td><%= project.status %></td>
     <td><%= project.total_price %></td>
+    <td><%= Percentage.percentages.key(project.average_percentage) %></td>
+    <td><%= project.total_members %></td>
 
     <%if project.group_projects.find_by_user_id(current_user.id).administrator? %>
 

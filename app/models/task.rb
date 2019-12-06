@@ -5,6 +5,7 @@ class Task < ApplicationRecord
   has_many :resources, through: :resources_tasks, dependent: :destroy
 
   enum status: ['En Proceso', 'Pendiente', 'Concluido']
+  enum filters: ['Costo', 'Recursos']
   validates :name,  presence: true, length: { maximum: 30 }
   validates :detail, :start_date, :finish_date, :status, presence: true
 
@@ -15,4 +16,9 @@ class Task < ApplicationRecord
     end
       total_price
   end
+
+  def total_resources
+    self.resources.count
+  end
+
 end

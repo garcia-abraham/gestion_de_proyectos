@@ -4,8 +4,8 @@
   <td><%= resource_task.quantity %></td>
   <td><%= resource_task.total %></td>
   <%if @task.user.id == current_user.id || @task.project.group_projects.find_by_user_id(current_user.id).administrator? %>
-    <td><%= link_to 'Editar', edit_resource_path(resource_task.resource) %></td>
-    <td><%= link_to 'Borrar', resource_path(resource_task.resource), method: :delete %></td>
+    <td><%= link_to 'Editar', edit_resource_task_path(resource_task) %></td>
+    <td><%= link_to 'Borrar', resource_task_path(resource_task), method: :delete %></td>
   <%end%>
 </tr>
 </tbody>

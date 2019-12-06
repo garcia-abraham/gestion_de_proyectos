@@ -1,9 +1,9 @@
-<%= form_with url: task_resources_path do |f| %>
+<%= form_with url: task_resource_tasks_path do |f| %>
 
 <div class="field is-horizontal is-narrow">
   <div class="field-label is-normal">
     <label class="label"> Tipo de Miembro </label>
-      <%= f.collection_select(:resource_id, @resources, :id, :name) %>
+      <%= select_tag(:resource_id, options_from_collection_for_select(@resources, :id, :name)) %>
   </div>
 </div>
 

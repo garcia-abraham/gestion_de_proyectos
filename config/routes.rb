@@ -25,7 +25,8 @@ Rails.application.routes.draw do
 
   resources :projects, shallow: true do
     resources :tasks do
-      resources :resources
+      resources :resource_tasks
+      #resources :resources
     end
     resources :group_projects, only: [:index, :new, :create, :destroy]
   end

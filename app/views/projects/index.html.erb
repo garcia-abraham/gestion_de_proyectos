@@ -2,7 +2,13 @@
 <h4 id="negrita"> <%=  current_user.name%></h4>
 <br>
 
-<h3 id="negrita">Proyectos</h3>
+<h3 id="negrita">Tus Proyectos</h3>
+
+<%= form_tag(projects_path, method: "get", local: true) do %>
+  <%= label_tag(:filter, "Filtrar proyectos por:") %>
+  <%= select_tag(:filter, options_for_select(Project.filters)) %>
+  <%= submit_tag("Filtrar") %>
+<% end %>
 
 <div class="container">
   <table class="table">
@@ -10,6 +16,8 @@
     <td>Nombre</td>
     <td>Estado</td>
     <td>Costo</td>
+    <td>Porcentaje</td>
+    <td>Miembros</td>
     <td></td>
     <td></td>
     <td></td>

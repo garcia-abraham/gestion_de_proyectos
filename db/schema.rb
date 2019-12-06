@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_032332) do
+ActiveRecord::Schema.define(version: 2019_12_06_043046) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_032332) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "percentage"
   end
 
   create_table "resource_tasks", force: :cascade do |t|
@@ -84,7 +85,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_032332) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "porcentaje"
+    t.integer "percentage"
     t.index ["project_id"], name: "index_tasks_on_project_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end

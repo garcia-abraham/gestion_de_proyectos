@@ -6,7 +6,16 @@ class ProjectsController < ApplicationController
 
   def index
     @user = current_user
-    @projects = @user.projects
+    case params[:filter].to_i
+    when 0
+      @projects = @user.projects.sort_by(&:total_price).reverse!
+    when 1
+      @projects = @user.projects.sort_by(&:total_members).reverse!
+    when 2
+      @projects = @user.projects.sort_by(&:average_percentage).reverse!
+    else
+      @projects = @user.projects
+    end
   end
 
   def new

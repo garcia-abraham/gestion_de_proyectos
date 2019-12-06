@@ -46,7 +46,7 @@
       <div class="field-body">
         <div class="field">
           <p class="control is-expanded">
-            <%= f.text_field :porcentaje, class: 'input', placeholder: "Porcentaje" %>
+            <%= f.select :percentage, Percentage.percentages, class: 'input' %>
           </p>
         </div>
       </div>
@@ -164,7 +164,7 @@
     <div class="field-body">
       <div class="field">
         <p class="control is-expanded">
-          <%= f.text_field :porcentaje, class: 'input', placeholder: "Porcentaje" %>
+          <%= f.select :percentage, Percentage.percentages, class: 'input' %>
         </p>
       </div>
     </div>
